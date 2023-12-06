@@ -2,6 +2,7 @@
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:vivacity_app/Authentication/login.dart';
 import 'package:vivacity_app/navigation.dart';
 
 final List<String> imgList = [
@@ -41,7 +42,6 @@ final List<Widget> textOverlays = [
     subtitle:
         'Descuentos y promociones en varios lugares como: hoteles, bares, restaurantes etc. Regístrate y consíguelos.',
   ),
-  // Add more TextOverlayWidgets for each slide as needed
 ];
 
 class TextOverlayWidget extends StatelessWidget {
@@ -169,7 +169,7 @@ class _InitialCarouselState extends State<InitialCarousel> {
               }).toList(),
             ),
           ),
-          // Ensure the SafeArea is the last element in the Stack to be on top
+
           SafeArea(
             child: Align(
               alignment: Alignment.topRight,
@@ -178,7 +178,7 @@ class _InitialCarouselState extends State<InitialCarousel> {
                 child: InkWell(
                   onTap: () {
                     Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => Navigation()),
+                      MaterialPageRoute(builder: (context) => Login()),
                     ); // Replace with your navigation logic.
                   },
                   child: Container(

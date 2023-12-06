@@ -11,6 +11,7 @@ dependencies:
     sdk: flutter
   google_fonts: ^6.1.0
   carousel_slider: ^4.2.1
+  font_awesome_flutter: ^10.6.0
 
 dev_dependencies:
   flutter_test:
@@ -23,5 +24,6 @@ flutter:
     - assets/
     - assets/splash/
     - assets/initial_carousel/
+    - assets/login/
     
 
