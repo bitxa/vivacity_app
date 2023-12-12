@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "111344231913",
+    "project_id": "vivaapp-162b6",
+    "storage_bucket": "vivaapp-162b6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:111344231913:android:0bd57531af769505b45778",
+        "android_client_info": {
+          "package_name": "com.example.vivacity_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "111344231913-mnjjj0ccn7tmvsheobt8piallb66s21c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-WaPDZnCqJ3r9cp2VED6iBlaXh_1cHMU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "111344231913-mnjjj0ccn7tmvsheobt8piallb66s21c.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "111344231913-mk7utj4tqgfv3sphqb7vu042774i48ge.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.vivacityApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
