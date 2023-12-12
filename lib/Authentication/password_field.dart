@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class PasswordField extends StatefulWidget {
+  const PasswordField({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _PasswordFieldState createState() => _PasswordFieldState();
 }
 
@@ -18,7 +21,7 @@ class _PasswordFieldState extends State<PasswordField> {
             color: Colors.grey.withOpacity(0.5),
             spreadRadius: 1,
             blurRadius: 3,
-            offset: Offset(0, 2),
+            offset: const Offset(0, 2),
           ),
         ],
       ),
@@ -26,7 +29,7 @@ class _PasswordFieldState extends State<PasswordField> {
         obscureText: _isHidden,
         decoration: InputDecoration(
           hintText: 'Ingresa tu contraseña',
-          prefixIcon: Icon(Icons.lock),
+          prefixIcon: const Icon(Icons.lock),
           suffixIcon: IconButton(
             icon: Icon(
               _isHidden ? Icons.visibility_off : Icons.visibility,
@@ -37,7 +40,7 @@ class _PasswordFieldState extends State<PasswordField> {
               });
             },
           ),
-          contentPadding: EdgeInsets.symmetric(vertical: 20.0),
+          contentPadding: const EdgeInsets.symmetric(vertical: 20.0),
           border: InputBorder.none,
         ),
       ),

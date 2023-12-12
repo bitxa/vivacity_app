@@ -2,9 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:vivacity_app/Authentication/login.dart';
-import 'package:vivacity_app/Authentication/password_field.dart';
 
 class Register extends StatelessWidget {
   const Register({super.key});
@@ -227,6 +225,7 @@ class Register extends StatelessWidget {
                     ],
                   ),
                 ),
+                SizedBox(height: 20),
                 Padding(
                   padding: const EdgeInsets.only(top: 6, left: 60, right: 60),
                   child: SizedBox(
@@ -242,6 +241,7 @@ class Register extends StatelessWidget {
                     ),
                   ),
                 ),
+                SizedBox(height: 20),
                 Row(
                   children: const <Widget>[
                     Expanded(child: Divider(thickness: 1, color: Colors.white)),
@@ -252,7 +252,7 @@ class Register extends StatelessWidget {
                     Expanded(child: Divider(thickness: 1, color: Colors.white)),
                   ],
                 ),
-                SizedBox(height: 24.0),
+                SizedBox(height: 20),
                 ButtonBar(
                   buttonPadding: EdgeInsets.only(left: 20, right: 20),
                   alignment: MainAxisAlignment.center,
@@ -274,6 +274,7 @@ class Register extends StatelessWidget {
                           backgroundColor: Color(0xffec5447),
                           foregroundColor: Colors.white),
                     ),
+                    SizedBox(height: 20),
                     // Facebook sign in button
                     ElevatedButton(
                       child: Row(

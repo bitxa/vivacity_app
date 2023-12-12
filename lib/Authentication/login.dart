@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:vivacity_app/Authentication/password_field.dart';
 import 'package:vivacity_app/Authentication/register.dart';
 
@@ -43,7 +42,7 @@ class Login extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Corre electrónico',
+                    'Correo electrónico',
                     style: TextStyle(
                       color: Color(0xFFFDFDFD),
                       fontWeight: FontWeight.bold,
@@ -85,23 +84,24 @@ class Login extends StatelessWidget {
                 ],
               ),
             ),
-
+            SizedBox(height: 20),
             //FORGET PASSWORD
             TextButton(
               child: Text('¿Olvidaste tu contraseña?'),
               onPressed: () {
                 // Add your onPressed code here!
               },
-              style: TextButton.styleFrom(primary: Colors.white),
+              style: TextButton.styleFrom(foregroundColor: Colors.white),
             ),
-
+            SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.only(left: 60, right: 60),
               child: SizedBox(
                 child: ElevatedButton(
                   child: Text('Ingresar'),
                   onPressed: () {
-                    // Add your onPressed code here!
+                    Navigator.pushNamed(
+                        context, 'app'); //para entrar a la app de momento
                   },
                   style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.white,
@@ -144,6 +144,7 @@ class Login extends StatelessWidget {
                       backgroundColor: Color(0xffec5447),
                       foregroundColor: Colors.white),
                 ),
+                SizedBox(height: 20),
                 // Facebook sign in button
                 ElevatedButton(
                   child: Row(
@@ -185,7 +186,7 @@ class Login extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => Register()),
                   );
                 },
-                style: TextButton.styleFrom(primary: Colors.white),
+                style: TextButton.styleFrom(foregroundColor: Colors.white),
               ),
             ),
           ],

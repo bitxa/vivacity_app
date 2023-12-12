@@ -3,7 +3,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:vivacity_app/Authentication/login.dart';
-import 'package:vivacity_app/navigation.dart';
 
 final List<String> imgList = [
   'assets/initial_carousel/1.png',
@@ -19,19 +18,16 @@ final List<Widget> textOverlays = [
     subtitle:
         'La ciudad interactúa contigo. No te pierdas nada de lo que sucede a tu alrededor. Nosotros te diremos cómo...',
   ),
-
   TextOverlayWidget(
     title: 'Obten tu agenda personalizada',
     subtitle:
         'Así puedes disfrutar de las más diversas actividades culturales en la ciudad, danza, música, teatro, exposiciones artísticas, emprendimientos, congresos, etc.',
   ),
-
   TextOverlayWidget(
     title: 'Recorre los lugares más fascinantes',
     subtitle:
         'Cada uno de los lugares de esta ciudad tiene su historia, así que puedes conocer mas de ella y de su gente, recórrela y conoce más detalles con los puntos de realidad aumentada...',
   ),
-
   TextOverlayWidget(
     title: 'Una experiencia virtual más cerca de lo que te imaginas',
     subtitle:
@@ -93,7 +89,10 @@ class TextOverlayWidget extends StatelessWidget {
 }
 
 class InitialCarousel extends StatefulWidget {
+  const InitialCarousel({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _InitialCarouselState createState() => _InitialCarouselState();
 }
 
@@ -109,7 +108,7 @@ class _InitialCarouselState extends State<InitialCarousel> {
           CarouselSlider.builder(
             itemCount: imgList.length,
             itemBuilder: (context, index, realIndex) {
-              return Container(
+              return SizedBox(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height,
                 child: Stack(
@@ -169,7 +168,6 @@ class _InitialCarouselState extends State<InitialCarousel> {
               }).toList(),
             ),
           ),
-
           SafeArea(
             child: Align(
               alignment: Alignment.topRight,

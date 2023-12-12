@@ -8,54 +8,146 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Lista Home',
-              style: TextStyle(
-                color: Colors.white,
-              )),
-          backgroundColor: Theme.of(context).colorScheme.primary,
-          actions: <Widget>[
-            IconButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, 'catalogo');
-                },
-                icon: const Icon(Icons.accessibility)),
-          ],
-        ),
-        body: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-            child: Center(
-              child: Wrap(
-                spacing: 10,
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 40),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment
+                  .spaceBetween, // Alinea los elementos al principio y al final
+              children: [
+                Row(
+                  children: const [
+                    CircleAvatar(
+                      maxRadius: 30,
+                      backgroundImage: AssetImage('assets/home/perfil.png'),
+                    ),
+                    SizedBox(width: 20),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Hola',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.black,
+                          ),
+                        ),
+                        Text(
+                          'James Franco',
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Colors.blue,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                IconButton(
+                  onPressed: () {
+                    // Acciones al hacer clic en el icono de notificaciones
+                  },
+                  icon: const Icon(Icons.notifications),
+                ),
+              ],
+            ),
+            SizedBox(height: 16),
+            Expanded(
+              child: ListView(
                 children: [
-                  ElevatedButton(
-                    onPressed: null,
-                    child: Text('Botón uno'),
+                  _buildImageButton(
+                    text: 'Ir a Pantalla 1',
+                    imagePath: 'assets/home/tour.png',
+                    onPressed: () {
+                      Navigator.pushNamed(context, 'pantalla1');
+                    },
                   ),
-                  ElevatedButton.icon(
-                    onPressed: null,
-                    icon: Icon(Icons.add),
-                    label: Text('Botón dos'),
+                  SizedBox(height: 16),
+                  _buildImageButton(
+                    text: 'Ir a Pantalla 2',
+                    imagePath: 'assets/home/food.png',
+                    onPressed: () {
+                      Navigator.pushNamed(context, 'pantalla2');
+                    },
                   ),
-                  FilledButton(onPressed: null, child: Text('Filled')),
-                  FilledButton.icon(
-                    onPressed: null,
-                    icon: Icon(Icons.ac_unit_sharp),
-                    label: Text('Botón seis'),
+                  SizedBox(height: 16),
+                  _buildImageButton(
+                    text: 'Ir a Pantalla 1',
+                    imagePath: 'assets/home/lugares.png',
+                    onPressed: () {
+                      Navigator.pushNamed(context, 'pantalla1');
+                    },
                   ),
-                  TextButton(onPressed: () {}, child: Text('Botón texto')),
-                  TextButton.icon(
-                      onPressed: () {
-                        Navigator.pushNamed(context, 'contenedor');
-                      },
-                      icon: Icon(
-                        Icons.accessibility_new_sharp,
-                      ),
-                      label: Text('Contenedor')),
-                  IconButton(
-                      onPressed: null, icon: Icon(Icons.add_alert_rounded)),
+                  SizedBox(height: 16),
+                  _buildImageButton(
+                    text: 'Ir a Pantalla 2',
+                    imagePath: 'assets/home/hotel.png',
+                    onPressed: () {
+                      Navigator.pushNamed(context, 'pantalla2');
+                    },
+                  ),
+                  SizedBox(height: 16),
+                  _buildImageButton(
+                    text: 'Ir a Pantalla 1',
+                    imagePath: 'assets/home/event.png',
+                    onPressed: () {
+                      Navigator.pushNamed(context, 'pantalla1');
+                    },
+                  ),
+                  SizedBox(height: 16),
+                  _buildImageButton(
+                    text: 'Ir a Pantalla 2',
+                    imagePath: 'assets/home/shop.png',
+                    onPressed: () {
+                      Navigator.pushNamed(context, 'pantalla2');
+                    },
+                  ),
+                  SizedBox(height: 16),
+                  _buildImageButton(
+                    text: 'Ir a Pantalla 1',
+                    imagePath: 'assets/home/party.png',
+                    onPressed: () {
+                      Navigator.pushNamed(context, 'pantalla1');
+                    },
+                  ),
+                  SizedBox(height: 16),
                 ],
               ),
-            )));
+            ),
+          ],
+        ),
+      ),
+    );
   }
+}
+
+Widget _buildImageButton({
+  required String text,
+  required String imagePath,
+  required VoidCallback onPressed,
+}) {
+  return InkWell(
+    onTap: onPressed,
+    child: Container(
+      height: 100,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(imagePath),
+          fit: BoxFit.cover,
+        ),
+        borderRadius: BorderRadius.circular(30),
+      ),
+      alignment: Alignment.center,
+      child: Text(
+        text,
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    ),
+  );
 }

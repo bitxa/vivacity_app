@@ -4,8 +4,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:vivacity_app/InitialCarousel/carousel.dart';
-import 'package:vivacity_app/home/home.dart';
-import 'package:vivacity_app/navigation.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
@@ -23,6 +21,7 @@ class _SplashState extends State<Splash> {
 
   _navigateToHome() async {
     await Future.delayed(const Duration(milliseconds: 100), () {});
+    // ignore: use_build_context_synchronously
     Navigator.pushReplacement(
         context, MaterialPageRoute(builder: (context) => InitialCarousel()));
   }
