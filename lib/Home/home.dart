@@ -137,7 +137,7 @@ Widget _buildImageButton({
           image: AssetImage(imagePath),
           fit: BoxFit.cover,
         ),
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: BorderRadius.circular(15),
       ),
       alignment: Alignment.center,
       child: Text(
