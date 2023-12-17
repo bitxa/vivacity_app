@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:vivacity_app/Home/home.dart';
+import 'package:vivacity_app/Favoritos/Favoritos.dart';
+import 'package:vivacity_app/Home/Home.dart';
+import 'package:vivacity_app/Mapa/Mapa.dart';
+import 'package:vivacity_app/Perfil/Perfil.dart';
+import 'package:vivacity_app/Restaurantes/restaurantes.dart';
 import 'package:vivacity_app/Splash/splash.dart';
 import 'package:vivacity_app/navigation.dart';
 
@@ -30,9 +34,13 @@ class VivaApp extends StatelessWidget {
                 decoration: TextDecoration.none)),
       ),
       routes: {
-        'app': (_) => const Navigation(),
         'splash': (_) => const Splash(),
-        'home': (_) => const Home(),
+        'navigationHome': (_) => const Navigation(),
+        'restaurantes': (_) => const Restaurantes(),
+        'home': (context) => const Home(),
+        'mapa': (context) => const Mapa(),
+        'favoritos': (context) => const Favoritos(),
+        'perfil': (context) => const Perfil(),
       },
       initialRoute: 'splash',
     );
