@@ -12,7 +12,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  await FirebaseAuth.instance.useAuthEmulator('localhost', 9098);
+  await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
   runApp(const VivaApp());
 }
 
@@ -24,6 +24,7 @@ class VivaApp extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
 
     return MaterialApp(
+      //scrollBehavior: MaterialScrollBehavior(),
       home: const Navigation(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
