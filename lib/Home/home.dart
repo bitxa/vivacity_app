@@ -58,7 +58,9 @@ class Home extends StatelessWidget {
                     text: 'TOUR VIRTUAL',
                     imagePath: 'assets/home/tour.png',
                     colorLabels: const Color(0xFFF00A78).withOpacity(0.75),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, 'virtual');
+                    },
                   ),
                   const SizedBox(height: 16),
                   _buildImageButton(
@@ -75,7 +77,7 @@ class Home extends StatelessWidget {
                     imagePath: 'assets/home/lugares.png',
                     colorLabels: const Color(0xFF3DCCC7).withOpacity(0.75),
                     onPressed: () {
-                      Navigator.pushNamed(context, 'pantalla1');
+                      Navigator.pushNamed(context, 'lugares');
                     },
                   ),
                   const SizedBox(height: 16),
@@ -84,7 +86,7 @@ class Home extends StatelessWidget {
                     imagePath: 'assets/home/hotel.png',
                     colorLabels: const Color(0xFF0A90CF).withOpacity(0.75),
                     onPressed: () {
-                      Navigator.pushNamed(context, 'pantalla2');
+                      Navigator.pushNamed(context, 'hospedaje');
                     },
                   ),
                   const SizedBox(height: 16),
@@ -93,7 +95,7 @@ class Home extends StatelessWidget {
                     imagePath: 'assets/home/event.png',
                     colorLabels: const Color(0xFFFF8080).withOpacity(0.75),
                     onPressed: () {
-                      Navigator.pushNamed(context, 'pantalla1');
+                      Navigator.pushNamed(context, 'eventos');
                     },
                   ),
                   const SizedBox(height: 16),
@@ -102,7 +104,7 @@ class Home extends StatelessWidget {
                     imagePath: 'assets/home/shop.png',
                     colorLabels: const Color(0xFFAECA5E).withOpacity(0.75),
                     onPressed: () {
-                      Navigator.pushNamed(context, 'pantalla2');
+                      Navigator.pushNamed(context, 'shopping');
                     },
                   ),
                   const SizedBox(height: 16),
@@ -111,7 +113,7 @@ class Home extends StatelessWidget {
                     imagePath: 'assets/home/party.png',
                     colorLabels: const Color(0xFFEE63E3).withOpacity(0.75),
                     onPressed: () {
-                      Navigator.pushNamed(context, 'pantalla1');
+                      Navigator.pushNamed(context, 'bar');
                     },
                   ),
                 ],

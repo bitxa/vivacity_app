@@ -1,114 +1,78 @@
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+// ignore_for_file: constant_identifier_names, avoid_print
 
-class Mapa extends StatelessWidget {
+import 'package:flutter/material.dart';
+import 'package:flutter_map/flutter_map.dart';
+import 'package:latlong2/latlong.dart';
+import 'package:geolocator/geolocator.dart';
+
+const MAPBOX_ACCESS_TOKEN =
+    'pk.eyJ1IjoicGl0bWFjIiwiYSI6ImNsY3BpeWxuczJhOTEzbnBlaW5vcnNwNzMifQ.ncTzM4bW-jpq-hUFutnR1g';
+
+class Mapa extends StatefulWidget {
   const Mapa({super.key});
+
+  @override
+  State<Mapa> createState() => _MapScreenState();
+}
+
+class _MapScreenState extends State<Mapa> {
+  LatLng? myPosition;
+
+  Future<Position> determinePosition() async {
+    LocationPermission permission;
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        return Future.error('error');
+      }
+    }
+    return await Geolocator.getCurrentPosition();
+  }
+
+  void getCurrentlocation() async {
+    Position position = await determinePosition();
+    setState(() {
+      myPosition = LatLng(position.latitude, position.longitude);
+      print(myPosition);
+    });
+  }
+
+  @override
+  void initState() {
+    getCurrentlocation();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 30),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Hola',
-                          style: GoogleFonts.inter(
-                            fontSize: 16,
-                            color: Colors.black,
-                          ),
-                        ),
-                        Text(
-                          'James Franco',
-                          style: GoogleFonts.inter(
-                            fontSize: 14,
-                            color: const Color(0xFF549BF3),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            const SizedBox(height: 16),
-            Expanded(
-              child: ListView(
-                children: [
-                  _buildImageButton(
-                    text: 'TOUR VIRTUAL',
-                    imagePath: 'assets/home/tour.png',
-                    colorLabels: const Color(0xFFF00A78).withOpacity(0.75),
-                    onPressed: () {},
+        body: myPosition == null
+            ? const CircularProgressIndicator()
+            : FlutterMap(
+                options: MapOptions(
+                    center: myPosition, minZoom: 5, maxZoom: 25, zoom: 18),
+                nonRotatedChildren: [
+                  TileLayer(
+                    urlTemplate:
+                        'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}',
+                    additionalOptions: const {
+                      'accessToken': MAPBOX_ACCESS_TOKEN,
+                      'id': 'mapbox/streets-v12'
+                    },
                   ),
-                  const SizedBox(height: 16),
+                  MarkerLayer(markers: [
+                    Marker(
+                        point: myPosition!,
+                        builder: (context) {
+                          return const Icon(
+                            Icons.person_pin,
+                            color: Colors.blueAccent,
+                            size: 40,
+                          );
+                        })
+                  ])
                 ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
+              ));
   }
-}
-
-Widget _buildImageButton({
-  required String text,
-  required String imagePath,
-  required VoidCallback onPressed,
-  required Color colorLabels,
-}) {
-  return InkWell(
-    onTap: onPressed,
-    child: Container(
-      height: 100,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(imagePath),
-          fit: BoxFit.cover,
-        ),
-        borderRadius: BorderRadius.circular(15),
-      ),
-      alignment: Alignment.center,
-      child: Stack(
-        children: [
-          Positioned(
-            top: 15,
-            right: 15,
-            child: Container(
-              width: 100,
-              height: 25,
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-              decoration: BoxDecoration(
-                color: colorLabels,
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(10),
-                ),
-              ),
-              child: Center(
-                child: Text(
-                  text,
-                  style: GoogleFonts.inter(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 10,
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    ),
-  );
 }
