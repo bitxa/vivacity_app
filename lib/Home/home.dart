@@ -85,7 +85,7 @@ class Home extends StatelessWidget {
                     text: 'Ir a Pantalla 2',
                     imagePath: 'assets/home/hotel.png',
                     onPressed: () {
-                      Navigator.pushNamed(context, 'pantalla2');
+                      Navigator.pushNamed(context, 'hotel');
                     },
                   ),
                   SizedBox(height: 16),

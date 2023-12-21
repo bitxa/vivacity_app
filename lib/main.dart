@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vivacity_app/Home/home.dart';
 import 'package:vivacity_app/Splash/splash.dart';
+import 'package:vivacity_app/hoteles/hoteles.dart';
 import 'package:vivacity_app/navigation.dart';
 
 void main() {
@@ -33,6 +34,7 @@ class VivaApp extends StatelessWidget {
         'app': (_) => const Navigation(),
         'splash': (_) => const Splash(),
         'home': (_) => const Home(),
+        'hotel': (_) => const HotelesPage()
       },
       initialRoute: 'splash',
     );
