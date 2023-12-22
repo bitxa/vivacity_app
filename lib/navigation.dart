@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:vivacity_app/Favoritos/Favoritos.dart';
-import 'package:vivacity_app/Home/Home.dart';
-import 'package:vivacity_app/Mapa/Mapa.dart';
-import 'package:vivacity_app/Perfil/Perfil.dart';
+import 'package:vivacity_app/Home/home.dart';
 
 class Navigation extends StatefulWidget {
   const Navigation({Key? key}) : super(key: key);
@@ -17,9 +14,7 @@ class _NavigationState extends State<Navigation> {
 
   final List<Widget> _pages = [
     const Home(),
-    const Mapa(),
-    const Favoritos(),
-    const Perfil(),
+    Container(),
   ];
 
   @override

@@ -29,5 +29,6 @@ flutter:
     - assets/initial_carousel/
     - assets/login/
     - assets/home/
+    - data/hoteles.json
     
 

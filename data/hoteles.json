@@ -1,0 +1,27 @@
+[
+    {
+      "id": 0,
+      "name": "Sonesta",
+      "estrellas": "5.0",
+      "imageUrl": "https://www.ghlhoteles.com/cache/db/95/db95781d909f025b62fc470b7cfad14d.jpg"
+    },
+    {
+        "id": 1,
+        "name": "Hotel Carrión",
+        "estrellas": "4.0",
+        "imageUrl": "https://th.bing.com/th/id/OIP.gBmTvNv9XccIIq3t83Mv7wHaJj?rs=1&pid=ImgDetMain"
+    },
+    {
+        "id": 2,
+        "name": "Gran Hotel Loja",
+        "estrellas": "5.0",
+        "imageUrl": "https://media-cdn.tripadvisor.com/media/photo-s/05/0a/bd/2f/grand-hotel-loja.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Hotel Libertador",
+      "estrellas": "4.0",
+      "imageUrl": "https://th.bing.com/th/id/OIP.T5o6cVoWisCUzthlyttXkwAAAA?rs=1&pid=ImgDetMain"
+    }
+    
+  ]

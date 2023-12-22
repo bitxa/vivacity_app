@@ -12,6 +12,7 @@ import 'package:vivacity_app/RV/virtual.dart';
 import 'package:vivacity_app/Restaurantes/restaurantes.dart';
 import 'package:vivacity_app/Shopping/shopping.dart';
 import 'package:vivacity_app/Splash/splash.dart';
+import 'package:vivacity_app/hoteles/hoteles.dart';
 import 'package:vivacity_app/navigation.dart';
 
 void main() async {
@@ -43,6 +44,7 @@ class VivaApp extends StatelessWidget {
       ),
       routes: {
         'splash': (_) => const Splash(),
+<<<<<<< HEAD
         'navigationHome': (_) => const Navigation(),
         'home': (context) => const Home(),
         'mapa': (context) => const Mapa(),
@@ -55,6 +57,10 @@ class VivaApp extends StatelessWidget {
         'eventos': (_) => const Eventos(),
         'shopping': (_) => const Shopping(),
         'bar': (_) => const Bar(),
+=======
+        'home': (_) => const Home(),
+        'hotel': (_) => const HotelesPage()
+>>>>>>> origin/jhoel
       },
       initialRoute: 'splash',
     );
