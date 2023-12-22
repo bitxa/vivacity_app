@@ -1,31 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:vivacity_app/Favoritos/Favoritos.dart';
 import 'package:vivacity_app/Home/Home.dart';
-import 'package:vivacity_app/Mapa/Mapa.dart';
-import 'package:vivacity_app/Perfil/Perfil.dart';
+import 'package:vivacity_app/Restaurantes/restaurantes.dart';
 
-class Navigation extends StatefulWidget {
-  const Navigation({Key? key}) : super(key: key);
+class NavigationFood extends StatefulWidget {
+  const NavigationFood({Key? key}) : super(key: key);
 
   @override
-  State<Navigation> createState() => _NavigationState();
+  State<NavigationFood> createState() => _NavigationState();
 }
 
-class _NavigationState extends State<Navigation> {
+class _NavigationState extends State<NavigationFood> {
   int _selectedIndex = 0;
 
   final List<Widget> _pages = [
+    const Restaurantes(), // Muestra Restaurantes por defecto
     const Home(),
-    const Mapa(),
-    const Favoritos(),
-    const Perfil(),
+    const Home(),
+    const Home(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _pages[_selectedIndex],
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: _pages,
+      ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Theme.of(context).colorScheme.primary,
         type: BottomNavigationBarType.fixed,
@@ -39,19 +39,19 @@ class _NavigationState extends State<Navigation> {
         },
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.house),
+            icon: Icon(Icons.home),
             label: 'Inicio',
           ),
           BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.locationDot),
+            icon: Icon(Icons.map),
             label: 'Mapa',
           ),
           BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.heartCirclePlus),
+            icon: Icon(Icons.favorite),
             label: 'Favoritos',
           ),
           BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.userLarge),
+            icon: Icon(Icons.person),
             label: 'Perfil',
           ),
         ],

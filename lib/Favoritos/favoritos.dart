@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+class Favoritos extends StatelessWidget {
+  const Favoritos({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,21 +18,9 @@ class Home extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    const CircleAvatar(
-                      maxRadius: 30,
-                      backgroundImage: AssetImage('assets/home/perfil.png'),
-                    ),
-                    const SizedBox(width: 20),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          'Hola',
-                          style: GoogleFonts.inter(
-                            fontSize: 16,
-                            color: Colors.black,
-                          ),
-                        ),
                         Text(
                           'James Franco',
                           style: GoogleFonts.inter(
@@ -44,10 +32,6 @@ class Home extends StatelessWidget {
                     ),
                   ],
                 ),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.notifications),
-                ),
               ],
             ),
             const SizedBox(height: 16),
@@ -58,9 +42,7 @@ class Home extends StatelessWidget {
                     text: 'TOUR VIRTUAL',
                     imagePath: 'assets/home/tour.png',
                     colorLabels: const Color(0xFFF00A78).withOpacity(0.75),
-                    onPressed: () {
-                      Navigator.pushNamed(context, 'virtual');
-                    },
+                    onPressed: () {},
                   ),
                   const SizedBox(height: 16),
                   _buildImageButton(
@@ -68,54 +50,10 @@ class Home extends StatelessWidget {
                     imagePath: 'assets/home/food.png',
                     colorLabels: const Color(0xFFE5A000).withOpacity(0.75),
                     onPressed: () {
-                      Navigator.pushNamed(context, 'restaurantes');
+                      Navigator.pushNamed(context, 'navigationFood');
                     },
                   ),
                   const SizedBox(height: 16),
-                  _buildImageButton(
-                    text: 'LUGARES',
-                    imagePath: 'assets/home/lugares.png',
-                    colorLabels: const Color(0xFF3DCCC7).withOpacity(0.75),
-                    onPressed: () {
-                      Navigator.pushNamed(context, 'lugares');
-                    },
-                  ),
-                  const SizedBox(height: 16),
-                  _buildImageButton(
-                    text: 'HOSPEDAJE',
-                    imagePath: 'assets/home/hotel.png',
-                    colorLabels: const Color(0xFF0A90CF).withOpacity(0.75),
-                    onPressed: () {
-                      Navigator.pushNamed(context, 'hospedaje');
-                    },
-                  ),
-                  const SizedBox(height: 16),
-                  _buildImageButton(
-                    text: 'EVENTOS',
-                    imagePath: 'assets/home/event.png',
-                    colorLabels: const Color(0xFFFF8080).withOpacity(0.75),
-                    onPressed: () {
-                      Navigator.pushNamed(context, 'eventos');
-                    },
-                  ),
-                  const SizedBox(height: 16),
-                  _buildImageButton(
-                    text: 'SHOPPING',
-                    imagePath: 'assets/home/shop.png',
-                    colorLabels: const Color(0xFFAECA5E).withOpacity(0.75),
-                    onPressed: () {
-                      Navigator.pushNamed(context, 'shopping');
-                    },
-                  ),
-                  const SizedBox(height: 16),
-                  _buildImageButton(
-                    text: 'BAR - DISCO',
-                    imagePath: 'assets/home/party.png',
-                    colorLabels: const Color(0xFFEE63E3).withOpacity(0.75),
-                    onPressed: () {
-                      Navigator.pushNamed(context, 'bar');
-                    },
-                  ),
                 ],
               ),
             ),

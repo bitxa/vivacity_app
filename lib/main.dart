@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:vivacity_app/Home/home.dart';
+import 'package:vivacity_app/Bar/bar.dart';
+import 'package:vivacity_app/Eventos/eventos.dart';
+import 'package:vivacity_app/Favoritos/Favoritos.dart';
+import 'package:vivacity_app/Home/Home.dart';
+import 'package:vivacity_app/Hospedaje/hospedaje.dart';
+import 'package:vivacity_app/Lugares/lugares.dart';
+import 'package:vivacity_app/Mapa/Mapa.dart';
+import 'package:vivacity_app/Perfil/Perfil.dart';
+import 'package:vivacity_app/RV/virtual.dart';
+import 'package:vivacity_app/Restaurantes/restaurantes.dart';
+import 'package:vivacity_app/Shopping/shopping.dart';
 import 'package:vivacity_app/Splash/splash.dart';
 import 'package:vivacity_app/navigation.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
   runApp(const VivaApp());
 }
 
@@ -39,9 +42,19 @@ class VivaApp extends StatelessWidget {
                 decoration: TextDecoration.none)),
       ),
       routes: {
-        'app': (_) => const Navigation(),
         'splash': (_) => const Splash(),
-        'home': (_) => const Home(),
+        'navigationHome': (_) => const Navigation(),
+        'home': (context) => const Home(),
+        'mapa': (context) => const Mapa(),
+        'favoritos': (context) => const Favoritos(),
+        'perfil': (context) => const Perfil(),
+        'virtual': (_) => const Virtual(),
+        'restaurantes': (_) => const Restaurantes(),
+        'lugares': (_) => const Lugares(),
+        'hospedaje': (_) => const Hospedaje(),
+        'eventos': (_) => const Eventos(),
+        'shopping': (_) => const Shopping(),
+        'bar': (_) => const Bar(),
       },
       initialRoute: 'splash',
     );
