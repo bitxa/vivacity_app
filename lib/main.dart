@@ -5,6 +5,8 @@ import 'package:vivacity_app/Eventos/eventos.dart';
 import 'package:vivacity_app/Favoritos/Favoritos.dart';
 import 'package:vivacity_app/Home/Home.dart';
 import 'package:vivacity_app/Hospedaje/hospedaje.dart';
+import 'package:vivacity_app/Lugares/galeria.dart';
+import 'package:vivacity_app/Lugares/lugar.dart';
 import 'package:vivacity_app/Lugares/lugares.dart';
 import 'package:vivacity_app/Mapa/Mapa.dart';
 import 'package:vivacity_app/Perfil/Perfil.dart';
@@ -19,7 +21,7 @@ void main() {
 }
 
 class VivaApp extends StatelessWidget {
-  const VivaApp({super.key});
+  const VivaApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +41,7 @@ class VivaApp extends StatelessWidget {
                 textStyle: textTheme.bodyLarge,
                 decoration: TextDecoration.none)),
       ),
+      initialRoute: 'splash',
       routes: {
         'splash': (_) => const Splash(),
         'navigationHome': (_) => const Navigation(),
@@ -48,13 +51,16 @@ class VivaApp extends StatelessWidget {
         'perfil': (context) => const Perfil(),
         'virtual': (_) => const Virtual(),
         'restaurantes': (_) => const Restaurantes(),
+        //Lugares
         'lugares': (_) => const Lugares(),
+        'lugar': (_) => const Lugar(),
+        'galeria': (_) => const Galeria(),
+        //Hospedaje
         'hospedaje': (_) => const Hospedaje(),
         'eventos': (_) => const Eventos(),
         'shopping': (_) => const Shopping(),
         'bar': (_) => const Bar(),
       },
-      initialRoute: 'splash',
     );
   }
 }
