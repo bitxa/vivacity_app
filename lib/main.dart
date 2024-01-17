@@ -14,7 +14,6 @@ import 'package:vivacity_app/RV/virtual.dart';
 import 'package:vivacity_app/Restaurantes/restaurantes.dart';
 import 'package:vivacity_app/Shopping/shopping.dart';
 import 'package:vivacity_app/Splash/splash.dart';
-import 'package:vivacity_app/navigation.dart';
 
 void main() {
   runApp(const VivaApp());
@@ -28,7 +27,7 @@ class VivaApp extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
 
     return MaterialApp(
-      home: const Navigation(),
+      home: const Home(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
@@ -44,7 +43,6 @@ class VivaApp extends StatelessWidget {
       initialRoute: 'splash',
       routes: {
         'splash': (_) => const Splash(),
-        'navigationHome': (_) => const Navigation(),
         'home': (context) => const Home(),
         'mapa': (context) => const Mapa(),
         'favoritos': (context) => const Favoritos(),
