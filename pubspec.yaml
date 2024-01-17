@@ -27,5 +27,6 @@ flutter:
     - assets/login/
     - assets/home/
     - data/hoteles.json
+    - data/shopping.json
     
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:vivacity_app/Home/home.dart';
 import 'package:vivacity_app/hoteles/hoteles.dart';
+import 'package:vivacity_app/Shopping/shopping.dart';
 
 class Navigation extends StatefulWidget {
   const Navigation({Key? key}) : super(key: key);
@@ -13,7 +14,7 @@ class Navigation extends StatefulWidget {
 class _NavigationState extends State<Navigation> {
   int _selectedIndex = 0;
 
-  final List<Widget> _pages = [const Home(), Container(), HotelesPage()];
+  final List<Widget> _pages = [const Home(), Container(), ShoppingPage()];
 
   @override
   Widget build(BuildContext context) {
