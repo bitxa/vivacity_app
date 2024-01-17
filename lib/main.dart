@@ -44,7 +44,6 @@ class VivaApp extends StatelessWidget {
       ),
       routes: {
         'splash': (_) => const Splash(),
-<<<<<<< HEAD
         'navigationHome': (_) => const Navigation(),
         'home': (context) => const Home(),
         'mapa': (context) => const Mapa(),
@@ -57,10 +56,7 @@ class VivaApp extends StatelessWidget {
         'eventos': (_) => const Eventos(),
         'shopping': (_) => const Shopping(),
         'bar': (_) => const Bar(),
-=======
-        'home': (_) => const Home(),
         'hotel': (_) => const HotelesPage()
->>>>>>> origin/jhoel
       },
       initialRoute: 'splash',
     );

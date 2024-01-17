@@ -86,11 +86,8 @@ class Home extends StatelessWidget {
                     imagePath: 'assets/home/hotel.png',
                     colorLabels: const Color(0xFF0A90CF).withOpacity(0.75),
                     onPressed: () {
-<<<<<<< HEAD
                       Navigator.pushNamed(context, 'hospedaje');
-=======
                       Navigator.pushNamed(context, 'hotel');
->>>>>>> origin/jhoel
                     },
                   ),
                   const SizedBox(height: 16),
