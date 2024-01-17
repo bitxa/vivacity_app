@@ -1,110 +1,174 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/services.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:vivacity_app/api/api_client.dart'; // Import your API client
 
-class Perfil extends StatelessWidget {
-  const Perfil({super.key});
+class Perfil extends StatefulWidget {
+  const Perfil({Key? key}) : super(key: key);
 
+  @override
+  _PerfilState createState() => _PerfilState();
+}
+
+class _PerfilState extends State<Perfil> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 30),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Hola',
-                          style: GoogleFonts.inter(
-                            fontSize: 16,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            const SizedBox(height: 16),
-            Expanded(
-              child: ListView(
-                children: [
-                  const SizedBox(height: 16),
-                  _buildImageButton(
-                    text: 'GASTRONOMIA',
-                    imagePath: 'assets/home/food.png',
-                    colorLabels: const Color(0xFFE5A000).withOpacity(0.75),
-                    onPressed: () {
-                      Navigator.pushNamed(context, 'navigationFood');
-                    },
-                  ),
-                  const SizedBox(height: 16),
-                ],
-              ),
-            ),
-          ],
-        ),
+      appBar: AppBar(
+        backgroundColor: Colors.teal,
+        title: Text('PERFIL'),
+      ),
+      body: ListView(
+        children: [
+          ProfileHeader(),
+          StatisticsSection(),
+          OptionsSection(),
+        ],
       ),
     );
   }
 }
 
-Widget _buildImageButton({
-  required String text,
-  required String imagePath,
-  required VoidCallback onPressed,
-  required Color colorLabels,
-}) {
-  return InkWell(
-    onTap: onPressed,
-    child: Container(
-      height: 100,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(imagePath),
-          fit: BoxFit.cover,
-        ),
-        borderRadius: BorderRadius.circular(15),
-      ),
+class ProfileHeader extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final apiClient = ApiClient(); // Assuming ApiClient is set up
+
+    return FutureBuilder<Uint8List>(
+      future: apiClient.getFileByPath(
+          "assets/profile/profile.jpg"), // Fetch image asynchronously
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Center(child: CircularProgressIndicator());
+        } else if (snapshot.hasError) {
+          return Center(child: Text('Error: ${snapshot.error}'));
+        } else if (snapshot.hasData) {
+          return buildProfileHeader(snapshot.data!);
+        } else {
+          return Center(child: Text('No Data'));
+        }
+      },
+    );
+  }
+
+  Widget buildProfileHeader(Uint8List imageData) {
+    return Container(
+      color: Colors.teal.shade100,
+      padding: EdgeInsets.symmetric(vertical: 16.0),
       alignment: Alignment.center,
-      child: Stack(
+      child: Column(
         children: [
-          Positioned(
-            top: 15,
-            right: 15,
-            child: Container(
-              width: 100,
-              height: 25,
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-              decoration: BoxDecoration(
-                color: colorLabels,
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(10),
-                ),
-              ),
-              child: Center(
-                child: Text(
-                  text,
-                  style: GoogleFonts.inter(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 10,
-                  ),
-                ),
-              ),
-            ),
+          CircleAvatar(
+            radius: 50,
+            backgroundImage: MemoryImage(imageData),
+          ),
+          SizedBox(height: 8),
+          Text(
+            'James Franco',
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+          Text(
+            'Loja, Ecuador',
+            style: TextStyle(fontSize: 18),
+          ),
+          Text('098950892'),
+        ],
+      ),
+    );
+  }
+}
+
+class StatisticsSection extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.white,
+      padding: EdgeInsets.all(16.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          StatisticItem(
+            title: 'Lugares visitados',
+            value: '10',
+          ),
+          StatisticItem(
+            title: 'Por visitar',
+            value: '20',
+          ),
+          StatisticItem(
+            title: 'Compartidos',
+            value: '8',
           ),
         ],
       ),
-    ),
-  );
+    );
+  }
+}
+
+class StatisticItem extends StatelessWidget {
+  final String title;
+  final String value;
+
+  const StatisticItem({Key? key, required this.title, required this.value})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(
+          value,
+          style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+        ),
+        Text(
+          title,
+          style: TextStyle(fontSize: 16),
+        ),
+      ],
+    );
+  }
+}
+
+class OptionsSection extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          OptionItem(
+            icon: FontAwesomeIcons.calendar,
+            title: 'Mi agenda',
+          ),
+          OptionItem(
+            icon: FontAwesomeIcons.mapMarkerAlt,
+            title: 'Lugares visitados',
+          ),
+          OptionItem(
+            icon: FontAwesomeIcons.heart,
+            title: 'Favoritos',
+          ),
+          // Add more OptionItem widgets for each option
+        ],
+      ),
+    );
+  }
+}
+
+class OptionItem extends StatelessWidget {
+  final IconData icon;
+  final String title;
+
+  const OptionItem({Key? key, required this.icon, required this.title})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: Icon(icon),
+      title: Text(title),
+      trailing: Icon(Icons.chevron_right),
+    );
+  }
 }

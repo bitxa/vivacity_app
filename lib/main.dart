@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vivacity_app/Bar/bar.dart';
 import 'package:vivacity_app/Eventos/eventos.dart';
@@ -6,7 +7,7 @@ import 'package:vivacity_app/Favoritos/Favoritos.dart';
 import 'package:vivacity_app/Home/Home.dart';
 import 'package:vivacity_app/Hospedaje/hospedaje.dart';
 import 'package:vivacity_app/Lugares/lugares.dart';
-import 'package:vivacity_app/Mapa/Mapa.dart';
+import 'package:vivacity_app/Mapa/mapa.dart';
 import 'package:vivacity_app/Perfil/Perfil.dart';
 import 'package:vivacity_app/RV/virtual.dart';
 import 'package:vivacity_app/Restaurantes/restaurantes.dart';
@@ -46,7 +47,7 @@ class VivaApp extends StatelessWidget {
         'splash': (_) => const Splash(),
         'navigationHome': (_) => const Navigation(),
         'home': (context) => const Home(),
-        'mapa': (context) => const Mapa(),
+        'mapa': (context) => const MapScreen(),
         'favoritos': (context) => const Favoritos(),
         'perfil': (context) => const Perfil(),
         'virtual': (_) => const Virtual(),

@@ -1,116 +1,235 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:vivacity_app/api/api_client.dart';
 
-class Favoritos extends StatelessWidget {
-  const Favoritos({super.key});
+class Favoritos extends StatefulWidget {
+  const Favoritos({Key? key}) : super(key: key);
+
+  @override
+  _FavoritosState createState() => _FavoritosState();
+}
+
+class _FavoritosState extends State<Favoritos> {
+  int _selectedIndex = 0; // First item selected by default
+  final List<ListItem> items = [
+    ListItem(
+      title: 'Sonesta',
+      imageUrl: 'assets/favourites/sonesta.png',
+      category: 'HOSPEDAJE',
+      color: Colors.blue, // Specific color for HOSPEDAJE
+    ),
+    ListItem(
+      title: 'El caribe',
+      imageUrl: 'assets/favourites/food.png',
+      category: 'COMIDA',
+      color: Colors.green, // Specific color for COMIDA
+    ),
+    // Add more items as needed
+  ];
+
+  void _onItemTap(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 30),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'James Franco',
-                          style: GoogleFonts.inter(
-                            fontSize: 14,
-                            color: const Color(0xFF549BF3),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            const SizedBox(height: 16),
-            Expanded(
-              child: ListView(
-                children: [
-                  _buildImageButton(
-                    text: 'TOUR VIRTUAL',
-                    imagePath: 'assets/home/tour.png',
-                    colorLabels: const Color(0xFFF00A78).withOpacity(0.75),
-                    onPressed: () {},
-                  ),
-                  const SizedBox(height: 16),
-                  _buildImageButton(
-                    text: 'GASTRONOMIA',
-                    imagePath: 'assets/home/food.png',
-                    colorLabels: const Color(0xFFE5A000).withOpacity(0.75),
-                    onPressed: () {
-                      Navigator.pushNamed(context, 'navigationFood');
-                    },
-                  ),
-                  const SizedBox(height: 16),
-                ],
+      appBar: AppBar(title: Text('Mis favoritos')),
+      body: Column(
+        children: [
+          Container(
+            color: Color(0xFFFFC94A),
+            padding: EdgeInsets.symmetric(vertical: 20.0),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: List<Widget>.generate(6, (index) {
+                  IconData iconData;
+                  switch (index) {
+                    case 0:
+                      iconData = FontAwesomeIcons.borderAll;
+                      break;
+                    case 1:
+                      iconData = FontAwesomeIcons.pizzaSlice;
+                      break;
+                    case 2:
+                      iconData = FontAwesomeIcons.bed;
+                      break;
+                    case 3:
+                      iconData = FontAwesomeIcons.bagShopping;
+                      break;
+                    case 4:
+                      iconData = FontAwesomeIcons.martiniGlass;
+                      break;
+                    case 5:
+                      iconData = FontAwesomeIcons.calendar;
+                      break;
+                    default:
+                      iconData = FontAwesomeIcons.questionCircle;
+                      break;
+                  }
+                  return MenuButton(
+                    icon: iconData,
+                    isSelected: _selectedIndex == index,
+                    onTap: () => _onItemTap(index),
+                  );
+                }),
               ),
             ),
-          ],
+          ),
+          Expanded(
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: items.length,
+              itemBuilder: (context, index) {
+                return CategoryCard(
+                  item: items[index],
+                  categoryColor:
+                      items[index].color, // Pass the color to the constructor
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class MenuButton extends StatelessWidget {
+  final IconData icon;
+  final bool isSelected;
+  final VoidCallback onTap;
+
+  const MenuButton({
+    Key? key,
+    required this.icon,
+    this.isSelected = false,
+    required this.onTap,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 21.0),
+        child: Icon(
+          icon,
+          size: 35.0,
+          color: isSelected ? Colors.white : Color(0XFF5C5C5C),
         ),
       ),
     );
   }
 }
 
-Widget _buildImageButton({
-  required String text,
-  required String imagePath,
-  required VoidCallback onPressed,
-  required Color colorLabels,
-}) {
-  return InkWell(
-    onTap: onPressed,
-    child: Container(
-      height: 100,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(imagePath),
-          fit: BoxFit.cover,
-        ),
-        borderRadius: BorderRadius.circular(15),
+class ListItem {
+  final String title;
+  final String imageUrl;
+  final String category;
+  final Color color; // Color field
+
+  ListItem({
+    required this.title,
+    required this.imageUrl,
+    required this.category,
+    required this.color, // Initialize the color field
+  });
+}
+
+class CategoryCard extends StatelessWidget {
+  final ListItem item;
+  final Color categoryColor; // Color parameter for category
+
+  const CategoryCard({
+    Key? key,
+    required this.item,
+    required this.categoryColor, // Required color parameter
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final ApiClient apiClient = ApiClient();
+    return Card(
+      clipBehavior: Clip.antiAlias,
+      margin: EdgeInsets.all(12),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15.0),
       ),
-      alignment: Alignment.center,
       child: Stack(
+        alignment: Alignment.bottomLeft,
         children: [
+          FutureBuilder<Uint8List>(
+            future: apiClient
+                .getFileByPath(item.imageUrl), // Fetch image asynchronously
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return Center(child: CircularProgressIndicator());
+              } else if (snapshot.hasError) {
+                return Center(child: Text('Error: ${snapshot.error}'));
+              } else if (snapshot.hasData) {
+                return ClipRRect(
+                  borderRadius: BorderRadius.circular(15.0),
+                  child: Image.memory(
+                    snapshot.data!,
+                    height: 200,
+                    fit: BoxFit.cover,
+                    width: double.infinity,
+                  ),
+                );
+              } else {
+                return Center(child: Text('No Data'));
+              }
+            },
+          ),
           Positioned(
-            top: 15,
-            right: 15,
+            bottom: 0,
+            left: 0,
+            right: 0,
             child: Container(
-              width: 100,
-              height: 25,
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 16),
               decoration: BoxDecoration(
-                color: colorLabels,
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(10),
+                color: Colors.black.withOpacity(0.5),
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(15.0),
+                  bottomRight: Radius.circular(15.0),
                 ),
               ),
-              child: Center(
-                child: Text(
-                  text,
-                  style: GoogleFonts.inter(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 10,
-                  ),
+              child: Text(
+                item.title,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 10,
+            right: 10,
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              decoration: BoxDecoration(
+                color: categoryColor, // Use passed color
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: Text(
+                item.category,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),
           ),
         ],
       ),
-    ),
-  );
+    );
+  }
 }

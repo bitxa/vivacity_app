@@ -7,41 +7,20 @@ class Restaurantes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: Text('Gastronomía'),
+      ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 30),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Hola',
-                          style: GoogleFonts.inter(
-                            fontSize: 16,
-                            color: Colors.black,
-                          ),
-                        ),
-                        Text(
-                          'James Franco',
-                          style: GoogleFonts.inter(
-                            fontSize: 14,
-                            color: const Color(0xFF549BF3),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            const SizedBox(height: 16),
             Expanded(
               child: ListView(
                 children: [
@@ -80,13 +59,13 @@ Widget _buildImageButton({
   return InkWell(
     onTap: onPressed,
     child: Container(
-      height: 100,
+      height: 140,
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage(imagePath),
           fit: BoxFit.cover,
         ),
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(20),
       ),
       alignment: Alignment.center,
       child: Stack(
@@ -94,23 +73,24 @@ Widget _buildImageButton({
           Positioned(
             top: 15,
             right: 15,
-            child: Container(
-              width: 100,
-              height: 25,
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-              decoration: BoxDecoration(
-                color: colorLabels,
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(10),
+            child: FittedBox(
+              child: Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                decoration: BoxDecoration(
+                  color: colorLabels,
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(25),
+                  ),
                 ),
-              ),
-              child: Center(
-                child: Text(
-                  text,
-                  style: GoogleFonts.inter(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 10,
+                child: Center(
+                  child: Text(
+                    text,
+                    style: GoogleFonts.inter(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 10,
+                    ),
                   ),
                 ),
               ),

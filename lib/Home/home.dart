@@ -8,51 +8,53 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 30),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    const CircleAvatar(
-                      maxRadius: 30,
-                      backgroundImage: AssetImage('assets/home/perfil.png'),
-                    ),
-                    const SizedBox(width: 20),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Hola',
-                          style: GoogleFonts.inter(
-                            fontSize: 16,
-                            color: Colors.black,
+            Container(
+              padding: EdgeInsets.all(10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      const CircleAvatar(
+                        maxRadius: 30,
+                        backgroundImage: AssetImage('assets/home/perfil.png'),
+                      ),
+                      const SizedBox(width: 20),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Hola',
+                            style: GoogleFonts.inter(
+                              fontSize: 16,
+                              color: Colors.black,
+                            ),
                           ),
-                        ),
-                        Text(
-                          'James Franco',
-                          style: GoogleFonts.inter(
-                            fontSize: 14,
-                            color: const Color(0xFF549BF3),
+                          Text(
+                            'James Franco',
+                            style: GoogleFonts.inter(
+                              fontSize: 14,
+                              color: const Color(0xFF549BF3),
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.notifications),
-                ),
-              ],
+                        ],
+                      ),
+                    ],
+                  ),
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.notifications),
+                  ),
+                ],
+              ),
             ),
-            const SizedBox(height: 16),
             Expanded(
               child: ListView(
+                padding: EdgeInsets.only(top: 10),
                 children: [
                   _buildImageButton(
                     text: 'TOUR VIRTUAL',
@@ -136,7 +138,7 @@ Widget _buildImageButton({
   return InkWell(
     onTap: onPressed,
     child: Container(
-      height: 100,
+      height: 140,
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage(imagePath),
@@ -144,7 +146,6 @@ Widget _buildImageButton({
         ),
         borderRadius: BorderRadius.circular(15),
       ),
-      alignment: Alignment.center,
       child: Stack(
         children: [
           Positioned(
