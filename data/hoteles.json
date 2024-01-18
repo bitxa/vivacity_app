@@ -3,25 +3,33 @@
       "id": 0,
       "name": "Sonesta",
       "estrellas": "5.0",
-      "imageUrl": "https://www.ghlhoteles.com/cache/db/95/db95781d909f025b62fc470b7cfad14d.jpg"
+      "imageUrl": "https://www.ghlhoteles.com/cache/db/95/db95781d909f025b62fc470b7cfad14d.jpg",
+      "ubicacion": "Av. Zoilo Rodriguez y Antisana, Calle Illiniza, Loja 110150",
+      "habitacion": "https://cdn.logitravel.fr/wsimgresize/resize/830/650/s3-eu-west-1.amazonaws.com/logs3euw1cdn/cloudcontent/fotos/agregadorHotelero/0018/17740/1817740/14.jpg?f=15418444"
     },
     {
         "id": 1,
         "name": "Hotel Carrión",
         "estrellas": "4.0",
-        "imageUrl": "https://th.bing.com/th/id/OIP.gBmTvNv9XccIIq3t83Mv7wHaJj?rs=1&pid=ImgDetMain"
+        "imageUrl": "https://th.bing.com/th/id/OIP.gBmTvNv9XccIIq3t83Mv7wHaJj?rs=1&pid=ImgDetMain",
+        "ubicacion": "Cristóbal Colón 152-41, Loja 110108",
+        "habitacion": "https://i.travelapi.com/lodging/92000000/91070000/91069000/91068996/6144cc86_z.jpg"
     },
     {
         "id": 2,
         "name": "Gran Hotel Loja",
         "estrellas": "5.0",
-        "imageUrl": "https://media-cdn.tripadvisor.com/media/photo-s/05/0a/bd/2f/grand-hotel-loja.jpg"
+        "imageUrl": "https://media-cdn.tripadvisor.com/media/photo-s/05/0a/bd/2f/grand-hotel-loja.jpg",
+        "ubicacion": "Av. Manuel Agustín Aguirre, Loja 110101",
+        "habitacion": "https://i.travelapi.com/lodging/92000000/91070000/91069000/91068996/6144cc86_z.jpg"
     },
     {
       "id": 3,
       "name": "Hotel Libertador",
       "estrellas": "4.0",
-      "imageUrl": "https://th.bing.com/th/id/OIP.T5o6cVoWisCUzthlyttXkwAAAA?rs=1&pid=ImgDetMain"
+      "imageUrl": "https://th.bing.com/th/id/OIP.T5o6cVoWisCUzthlyttXkwAAAA?rs=1&pid=ImgDetMain",
+      "ubicacion": "Colon y, Simón Bolívar, Loja",
+      "habitacion": "https://i.travelapi.com/lodging/92000000/91070000/91069000/91068996/6144cc86_z.jpg"
     }
     
   ]

@@ -1,0 +1,24 @@
+[
+    {
+      "id": 0,
+      "name": "RM Loja",
+      "hora": "9:00 AM - 18:00 PM",
+      "imageUrl": "https://th.bing.com/th/id/OIP.7UwwCmmufbNwoTpKSZfyiAHaE8?rs=1&pid=ImgDetMain",
+      "ubicacion": "José Antonio Eguiguren y 18 de Noviembre"
+    },
+    {
+        "id": 1,
+        "name": "AntoCarbone",
+        "hora": "9:00 AM - 19:00 PM",
+        "imageUrl": "https://th.bing.com/th/id/R.b71e6cba7bb28b4a8f9b80be4c7e1441?rik=Pa%2bEe51D%2bCQzGg&pid=ImgRaw&r=0",
+        "ubicacion": "José Antonio Eguiguren 14-52"
+    },
+    {
+        "id": 2,
+        "name": "Sin Fronteras",
+        "hora": "9:00 AM - 18:00 PM",
+        "imageUrl": "https://th.bing.com/th/id/R.fca72878285777a60ffd9346bc7105fd?rik=MuNo4bu4nI%2bPuA&pid=ImgRaw&r=0",
+        "ubicacion": "10 de Agosto y Sucre, esquina"
+    }
+    
+  ]

@@ -55,7 +55,7 @@ class VivaApp extends StatelessWidget {
         'lugares': (_) => const Lugares(),
         'hospedaje': (_) => const Hospedaje(),
         'eventos': (_) => const Eventos(),
-        'shopping': (_) => const Shopping(),
+        'shopping': (_) => const ShoppingPage(),
         'bar': (_) => const Bar(),
         'hotel': (_) => const HotelesPage()
       },
