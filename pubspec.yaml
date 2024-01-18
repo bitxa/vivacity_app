@@ -40,5 +40,6 @@ flutter:
     - data/hoteles.json
     - assets/map_style.json
     - data/shopping.json
+    - assets/lugares/
     
 

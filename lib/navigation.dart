@@ -4,8 +4,6 @@ import 'package:vivacity_app/Favoritos/favoritos.dart';
 import 'package:vivacity_app/Home/home.dart';
 import 'package:vivacity_app/Mapa/mapa.dart';
 import 'package:vivacity_app/Perfil/perfil.dart';
-import 'package:vivacity_app/hoteles/hoteles.dart';
-import 'package:vivacity_app/Shopping/shopping.dart';
 
 class Navigation extends StatefulWidget {
   const Navigation({Key? key}) : super(key: key);
@@ -34,8 +32,6 @@ class _NavigationScreenState extends State<Navigation> {
     }
     return true; // Allow the system to handle the back button (e.g., exit the app)
   }
-
-  final List<Widget> _pages = [const Home(), Container(), ShoppingPage()];
 
   @override
   Widget build(BuildContext context) {

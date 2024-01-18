@@ -117,7 +117,7 @@ class Login extends StatelessWidget {
                             child: Text('Ingresar'),
                             onPressed: () {
                               Navigator.pushNamed(context,
-                                  'navigationHome'); //para entrar a la app de momento
+                                  'home'); 
                             },
                             style: ElevatedButton.styleFrom(
                               foregroundColor: Colors.white,

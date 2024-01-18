@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Home extends StatelessWidget {
-  const Home({super.key});
+  const Home({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         child: Column(
           children: [
             const SizedBox(height: 30),
             Container(
-              padding: EdgeInsets.all(10),
+              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -56,14 +56,6 @@ class Home extends StatelessWidget {
               child: ListView(
                 padding: EdgeInsets.only(top: 10),
                 children: [
-                  _buildImageButton(
-                    text: 'TOUR VIRTUAL',
-                    imagePath: 'assets/home/tour.png',
-                    colorLabels: const Color(0xFFF00A78).withOpacity(0.75),
-                    onPressed: () {
-                      Navigator.pushNamed(context, 'virtual');
-                    },
-                  ),
                   const SizedBox(height: 16),
                   _buildImageButton(
                     text: 'GASTRONOMIA',
@@ -88,8 +80,7 @@ class Home extends StatelessWidget {
                     imagePath: 'assets/home/hotel.png',
                     colorLabels: const Color(0xFF0A90CF).withOpacity(0.75),
                     onPressed: () {
-                      Navigator.pushNamed(context, 'hospedaje');
-                      Navigator.pushNamed(context, 'hotel');
+                      Navigator.pushNamed(context, 'hoteles');
                     },
                   ),
                   const SizedBox(height: 16),
