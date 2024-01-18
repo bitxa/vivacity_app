@@ -11,21 +11,20 @@ class Favoritos extends StatefulWidget {
 }
 
 class _FavoritosState extends State<Favoritos> {
-  int _selectedIndex = 0; // First item selected by default
+  int _selectedIndex = 0; 
   final List<ListItem> items = [
     ListItem(
       title: 'Sonesta',
       imageUrl: 'assets/favourites/sonesta.png',
       category: 'HOSPEDAJE',
-      color: Colors.blue, // Specific color for HOSPEDAJE
+      color: Colors.blue, 
     ),
     ListItem(
       title: 'El caribe',
       imageUrl: 'assets/favourites/food.png',
       category: 'COMIDA',
-      color: Colors.green, // Specific color for COMIDA
+      color: Colors.green, 
     ),
-    // Add more items as needed
   ];
 
   void _onItemTap(int index) {
