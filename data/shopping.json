@@ -4,21 +4,33 @@
       "name": "RM Loja",
       "hora": "9:00 AM - 18:00 PM",
       "imageUrl": "https://th.bing.com/th/id/OIP.7UwwCmmufbNwoTpKSZfyiAHaE8?rs=1&pid=ImgDetMain",
-      "ubicacion": "José Antonio Eguiguren y 18 de Noviembre"
+      "ubicacion": "José Antonio Eguiguren y 18 de Noviembre",
+      "camisetas": "https://http2.mlstatic.com/kit-10-camisetas-camisas-masculinas-diversas-marcas-atacado-D_NQ_NP_820980-MLB25649590209_062017-F.jpg",
+      "pantalones": "https://th.bing.com/th/id/OIP.YXrEgEbocQ34HfkATAwJvQHaIg?rs=1&pid=ImgDetMain",
+      "zapatos": "https://th.bing.com/th/id/OIP.FORmIZG1GxD3MmI5HcpCsAAAAA?w=300&h=300&rs=1&pid=ImgDetMain",
+      "collares": "https://th.bing.com/th/id/R.3daf993c244d827414d45d6600cb829a?rik=lDaaxlefEQQ0pw&pid=ImgRaw&r=0"
     },
     {
         "id": 1,
         "name": "AntoCarbone",
         "hora": "9:00 AM - 19:00 PM",
         "imageUrl": "https://th.bing.com/th/id/R.b71e6cba7bb28b4a8f9b80be4c7e1441?rik=Pa%2bEe51D%2bCQzGg&pid=ImgRaw&r=0",
-        "ubicacion": "José Antonio Eguiguren 14-52"
+        "ubicacion": "José Antonio Eguiguren 14-52",
+        "camisetas": "https://http2.mlstatic.com/kit-10-camisetas-camisas-masculinas-diversas-marcas-atacado-D_NQ_NP_820980-MLB25649590209_062017-F.jpg",
+        "pantalones": "https://th.bing.com/th/id/OIP.YXrEgEbocQ34HfkATAwJvQHaIg?rs=1&pid=ImgDetMain",
+        "zapatos": "https://th.bing.com/th/id/OIP.FORmIZG1GxD3MmI5HcpCsAAAAA?w=300&h=300&rs=1&pid=ImgDetMain",
+        "collares": "https://th.bing.com/th/id/R.3daf993c244d827414d45d6600cb829a?rik=lDaaxlefEQQ0pw&pid=ImgRaw&r=0"
     },
     {
         "id": 2,
         "name": "Sin Fronteras",
         "hora": "9:00 AM - 18:00 PM",
         "imageUrl": "https://th.bing.com/th/id/R.fca72878285777a60ffd9346bc7105fd?rik=MuNo4bu4nI%2bPuA&pid=ImgRaw&r=0",
-        "ubicacion": "10 de Agosto y Sucre, esquina"
+        "ubicacion": "10 de Agosto y Sucre, esquina",
+        "camisetas": "https://http2.mlstatic.com/kit-10-camisetas-camisas-masculinas-diversas-marcas-atacado-D_NQ_NP_820980-MLB25649590209_062017-F.jpg",
+        "pantalones": "https://th.bing.com/th/id/OIP.YXrEgEbocQ34HfkATAwJvQHaIg?rs=1&pid=ImgDetMain",
+        "zapatos": "https://th.bing.com/th/id/OIP.FORmIZG1GxD3MmI5HcpCsAAAAA?w=300&h=300&rs=1&pid=ImgDetMain",
+        "collares": "https://th.bing.com/th/id/R.3daf993c244d827414d45d6600cb829a?rik=lDaaxlefEQQ0pw&pid=ImgRaw&r=0"
     }
     
   ]
